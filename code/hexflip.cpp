@@ -5,14 +5,15 @@
 #include <string>
 #include <array>
 
-const int L       = 6;     // MUST BE EVEN
-const int l       = 4;     // l=L is fully packed
+const int L       = 18;     // MUST BE EVEN
+      int l       = 0;     // l=L is fully packed
+      int l_skip  = 6;
 const int width   = L;     // System width 
 const int height  = L/2;   // System height: let width/height =2
 const int m = 3;           // number of NONTRIVIAL colors
 int step  = 0;             // used for filenames
 int init_steps = 0;         // used to thermalize the system
-int prints = 1000;            // simulation time
+int prints = 2000;            // simulation time
 int steps_per_print = 1;    // total steps = prints * steps_per_print
 int run = 0; 
 int runs = 100;
@@ -326,8 +327,8 @@ void print_N_flippable() {
 
 	for (run = 0; run < runs; run++) {
 		reset();
-		myfile << observable();
 		if (l>0) insert_horz_label(l);
+		myfile << observable();
 		// if (insert_nontrivial) {insert_big_loops();}
 		// if (small_loops) {insert_small_loops();}
 		for (step = 0; step < prints; step++) {
@@ -346,7 +347,9 @@ int main(int argc, char *argv[]) {
 	// print_state();
 	// std::cout << "\n\n\n";
 
-	print_N_flippable();
+	for (l = 0; l < L; l+=l_skip) {
+		print_N_flippable();
+	}
 
 	// insert_horz_label(9);
 	// insert_big_loops();
