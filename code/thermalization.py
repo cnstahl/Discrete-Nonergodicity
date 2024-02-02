@@ -3,6 +3,13 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import glob
 
+
+
+
+
+
+
+
 def thermalization(L,l):
 	string = '../therm/N_flippable_'
 	string += 'L' + str(L) + 'l' + str(l) + '.dat'

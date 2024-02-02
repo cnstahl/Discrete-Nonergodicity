@@ -6,7 +6,7 @@
 #include <array>
 #include <functional>
 
-const int mult    = 6;
+const int mult    = 2;
 const int L       = 6*mult;     // MUST BE EVEN
       int l       = 0;     // l=L is fully packed
       int l_skip  = mult;
@@ -14,13 +14,13 @@ const int width   = L;     // System width
 const int height  = L/2;   // System height: let width/height =2
 const int m = 3;           // number of NONTRIVIAL colors
 int step  = 0;             // used for filenames
-int init_steps = 0;         // used to thermalize the system
-int prints = 4000;            // simulation time
+int init_steps = 300;         // used to thermalize the system
+int prints = 10000;            // simulation time
 int steps_per_print = 1;    // total steps = prints * steps_per_print
 int run = 0; 
-int runs = 1000;
+int runs = 10;
 bool vertical = false;
-std::string type = "therm";
+std::string type = "autoc";
 
 // declare random number generator outside of main
 std::random_device rd;  // Used to obtain a seed for the random number engine

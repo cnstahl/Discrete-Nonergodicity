@@ -1,6 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import glob
+
+def fft_correl(x,y):
+    """ 2D correlation, using FFT"""
+    interval = np.size(x)
+    fr = np.fft.fft(x, n=2*interval-1)
+    fr2 = np.fft.fft(y[::-1], n=2*interval-1)
+    return np.real(np.fft.ifft(fr*fr2, n=2*interval-1))
 
 def autocorrelation(L,l):
 	string = '../autoc/N_flippable_'
@@ -20,11 +28,14 @@ def autocorrelation(L,l):
 	data_rge = data_max-data_min
 
 	plt.title('autoc: L='+ str(L) + ', l=' + str(l) + ', ' + str(N_runs) + " runs, each of " + str(N_steps) + " steps")
-	plt.plot(data)
+	plt.plot(data[:1000])
 	plt.ylim([data_min-data_rge, data_max+data_rge])
 	plt.savefig('../img/N_flippable_autoc_L' + str(L) + 'l' + str(l))
 	plt.clf()
 
-for L in (6, 12, 18, 24, 36):
-	for l in (0,6):
-		autocorrelation(L,l)
+for filename in glob.glob('../autoc/N_flippable_L*l*.dat'):
+    print(filename)
+    filename = filename.replace('../autoc/N_flippable_L', '')
+    L = int(filename[:filename.find('l')])
+    l = int(filename[filename.find('l')+1:filename.find('.')])
+    autocorrelation(L,l)
