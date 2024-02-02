@@ -28,7 +28,7 @@ def autocorrelation(L,l):
 	data_rge = data_max-data_min
 
 	plt.title('autoc: L='+ str(L) + ', l=' + str(l) + ', ' + str(N_runs) + " runs, each of " + str(N_steps) + " steps")
-	plt.plot(data[:1000])
+	plt.plot(data[:int(len(data)/10)])
 	plt.ylim([data_min-data_rge, data_max+data_rge])
 	plt.savefig('../img/N_flippable_autoc_L' + str(L) + 'l' + str(l))
 	plt.clf()
