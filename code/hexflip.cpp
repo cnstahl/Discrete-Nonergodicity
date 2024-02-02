@@ -8,13 +8,13 @@
 
 const int L       = 48;     // MUST BE EVEN
       int l       = 0;     // l=L is fully packed
-      int l_skip  = 12;
+      int l_skip  = 6;
 const int width   = L;     // System width 
 const int height  = L/2;   // System height: let width/height =2
 const int m = 3;           // number of NONTRIVIAL colors
 int step  = 0;             // used for filenames
 int init_steps = 0;         // used to thermalize the system
-int prints = 3000;            // simulation time
+int prints = 4000;            // simulation time
 int steps_per_print = 1;    // total steps = prints * steps_per_print
 int run = 0; 
 int runs = 1000;
