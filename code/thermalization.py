@@ -27,6 +27,7 @@ def thermalization(L,l):
 	plt.clf()
 
 for filename in glob.glob('../therm/N_flippable_L*l*.dat'):
+    print(filename)
     filename = filename.replace('../therm/N_flippable_L', '')
     L = int(filename[:filename.find('l')])
     l = int(filename[filename.find('l')+1:filename.find('.')])

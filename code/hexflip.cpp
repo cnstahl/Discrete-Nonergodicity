@@ -4,19 +4,20 @@
 #include <random>
 #include <string>
 #include <array>
+#include <functional>
 
-const int L       = 18;     // MUST BE EVEN
+const int L       = 48;     // MUST BE EVEN
       int l       = 0;     // l=L is fully packed
-      int l_skip  = 6;
+      int l_skip  = 12;
 const int width   = L;     // System width 
 const int height  = L/2;   // System height: let width/height =2
 const int m = 3;           // number of NONTRIVIAL colors
 int step  = 0;             // used for filenames
 int init_steps = 0;         // used to thermalize the system
-int prints = 2000;            // simulation time
+int prints = 3000;            // simulation time
 int steps_per_print = 1;    // total steps = prints * steps_per_print
 int run = 0; 
-int runs = 100;
+int runs = 1000;
 bool vertical = false;
 std::string type = "therm";
 
