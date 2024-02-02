@@ -1,13 +1,13 @@
 #! /bin/bash
 
-#SBATCH -J  hexflip48
+#SBATCH -J  hexflip36
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --time=12:00:00
 #SBATCH --mail-type=ALL
 
 workdir="$SLURM_SUBMIT_DIR"
-CMD="./hexflip48"
+CMD="./hexflip36"
 
 
 

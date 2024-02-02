@@ -6,9 +6,10 @@
 #include <array>
 #include <functional>
 
-const int L       = 48;     // MUST BE EVEN
+const int mult    = 6;
+const int L       = 6*mult;     // MUST BE EVEN
       int l       = 0;     // l=L is fully packed
-      int l_skip  = 6;
+      int l_skip  = mult;
 const int width   = L;     // System width 
 const int height  = L/2;   // System height: let width/height =2
 const int m = 3;           // number of NONTRIVIAL colors
