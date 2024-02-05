@@ -6,7 +6,7 @@
 #include <array>
 #include <functional>
 
-const int mult    = 6;
+const int mult    = 1;
 const int L       = 6*mult;     // MUST BE EVEN
       int l       = 0;     // l=L is fully packed
       int l_skip  = mult;
@@ -15,12 +15,12 @@ const int height  = L/2;   // System height: let width/height =2
 const int m = 3;           // number of NONTRIVIAL colors
 int step  = 0;             // used for filenames
 int init_steps = 1000;         // used to thermalize the system
-int prints = 20000;            // simulation time
-int steps_per_print = 1;    // total steps = prints * steps_per_print
+int prints = 10000;            // simulation time
+int steps_per_print = 600;    // total steps = prints * steps_per_print
 int run = 0; 
-int runs = 10;
+int runs = 1;
 bool vertical = false;
-std::string type = "autoc";
+std::string type = "data";
 
 // declare random number generator outside of main
 std::random_device rd;  // Used to obtain a seed for the random number engine
@@ -330,6 +330,7 @@ void print_N_flippable() {
 	for (run = 0; run < runs; run++) {
 		reset();
 		if (l>0) insert_horz_label(l);
+		update_func(init_steps);
 		myfile << observable();
 		// if (insert_nontrivial) {insert_big_loops();}
 		// if (small_loops) {insert_small_loops();}
